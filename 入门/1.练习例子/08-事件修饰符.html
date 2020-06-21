@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>{{num}}</div>
+    <div @click="handle0">
+
+      <button @click="handle1">点击1</button>
+      <!-- 使用 .stop 阻止冒泡 -->
+      <!-- 只触发当前button的点击事件：在控制台打印一句话 -->
+      <button @click.stop="handle1">点击2</button>
+    </div>
+    <div>
+      <a href="http://www.baidu.com" @click="handle2">百度</a>
+      <!-- 使用 .prevent 阻止默认事件 -->
+      <a href="http://www.baidu.com" @click.prevent="handle2">百度</a>
+    </div>
+  </div>
+  <script type="text/javascript" src="../js/vue.js"></script>
+  <script type="text/javascript">
+    /*
+      事件绑定-事件修饰符
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        num: 0
+      },
+      methods: {
+        handle0: function () {
+          this.num++;
+        },
+        handle1: function () {
+          console.log("这是触发了按钮点击事件" + this.num++)
+          // 阻止冒泡
+          //event.stopPropagation();
+        },
+        handle2: function (event) {
+          console.log("这是触发了按钮点击事件")
+          // 阻止默认行为
+          // event.preventDefault();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

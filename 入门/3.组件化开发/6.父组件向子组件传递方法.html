@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父组件向子组件传递方法</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 第一步，在子组件上，使用@符号为该组件绑定一个事件 -->
+        <my-com @alert-msg="alertMsg"></my-com>
+    </div>
+</body>
+<template id="myTemp">
+    <div>
+        <button @click="handlerMethod">点我</button>
+    </div>
+</template>
+<script>
+    let myCom = Vue.extend({
+        template: '#myTemp',
+        methods: {
+            handlerMethod() {
+                // 第一个参数表示要调用的方法。
+                // 第二个参数往后，就是我们需要传递的参数
+                this.$emit('alert-msg', '被调用')
+            }
+        }
+    })
+    let app = new Vue({
+        el: '#app',
+        data: {
+            msg: '我是父组件的msg'
+        },
+        methods: {
+            alertMsg(msg) {
+                alert(msg)
+            }
+        },
+        components: {
+            myCom
+        }
+    })
+</script>
+
+</html>

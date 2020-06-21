@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <a v-bind:href="baiduLink">百度</a><br>
+        <!-- v-bind简写方式 -->
+        <a :href="baiduLink">百度</a>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                baiduLink: 'http://www.baidu.com'
+            }
+        });
+    </script>
+</body>
+
+</html>

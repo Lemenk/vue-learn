@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父组件调用子组件方法</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="countAdd">点我</button>
+        <!-- 第一步，给子组件绑定一个ref -->
+        <my-com ref="myComp"></my-com>
+    </div>
+</body>
+<template id="myTemp">
+    <div>
+        {{count}}
+    </div>
+</template>
+<script>
+    let myCom = Vue.extend({
+        template: '#myTemp',
+        data() {
+            return {
+                count: 1
+            }
+        },
+        methods: {
+            addCount() {
+                this.count++
+            }
+        }
+    })
+    let app = new Vue({
+        el: '#app',
+        methods: {
+            countAdd() {
+                // 第二步，在父组件中使用this.$refs.id就行了
+                console.log(this.$refs.myComp.count)
+                this.$refs.myComp.addCount()
+            }
+        },
+        components: {
+            myCom
+        }
+    })
+</script>
+
+</html>

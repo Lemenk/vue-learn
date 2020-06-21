@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插值表达式</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <h2>Hello {{name}}</h2>
+      <h2>{{firstName}} {{lastName}}</h2>
+      <h2>{{count*2}}</h2>
+      <h2 v-once>{{firstName}} {{lastName}}</h2>
+    </div>
+  </body>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        name: 'Vue',
+        firstName: '张',
+        lastName: '三',
+        count: 5
+      }
+    })
+  </script>
+  
+</html>

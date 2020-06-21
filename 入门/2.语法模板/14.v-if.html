@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{score}}</p>
+        <div v-if="score >= 85">优秀</div>
+        <div v-else-if="score >= 70">良好</div>
+        <div v-else-if="score >= 60">及格</div>
+        <div v-else>不及格</div>
+        <button @click="delScore">减分</button>
+    </div>
+</body>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            score: 100
+        },
+        methods: {
+            delScore() {
+                this.score -= 10
+            }
+        }
+
+    })
+</script>
+
+</html>

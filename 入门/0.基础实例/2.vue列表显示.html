@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue遍历数组列表</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in books">{{item}}</li>
+            <hr>
+            <!-- 获取索引值 -->
+            <li v-for="(item, index) in books">{{index + ':' + item}}</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            books: ['计算机组成原理',
+                'Java核心技术',
+                'Java编程思想',
+                '大学英语',
+                '大学物理'
+            ]
+        }
+    })
+</script>
+
+</html>

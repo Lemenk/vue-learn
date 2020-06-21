@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父组件向子组件传值</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 第一步，用绑定的方式，将父组件的数据绑定给子组件 -->
+        <my-com :msg="msg"></my-com>
+    </div>
+</body>
+
+<template id="myTemp">
+    <div>
+        <span>当前数量：{{count}}</span>
+        <div>{{msg}}</div>
+    </div>
+</template>
+
+<script>
+    let myCom = Vue.extend({
+        template: '#myTemp',
+        data() {
+            return {
+                count: 10
+            }
+        },
+        props: [
+            // 第二步，使用props接收.
+            'msg'
+        ]
+    })
+    let app = new Vue({
+        el: '#app',
+        data: {
+            msg: '我是父组件的msg'
+        },
+        components: {
+            myCom
+        }
+    })
+</script>
+
+</html>

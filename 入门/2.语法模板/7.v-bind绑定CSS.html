@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.v-bind绑定CSS</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active {
+            color: red;
+        }
+
+        .size {
+            font-size: 35px;
+        }
+
+        .h2-border {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 方式1：直接通过{}绑定一个CSS属性类。可以绑定多个值，也可以与普通类同时存在 -->
+        <h2 :class="{'active':isActive}">Hello Vue</h2>
+        <!-- 方式2：和普通类同时存在，并不冲突 -->
+        <h2 class="h2-border" :class="{'active':isActive, 'size': big}">Hello Vue</h2>
+        <!-- 方式3：如果过于复杂，可以放到一个data中 -->
+        <h2 class="h2-border" :class="classes">Hello Vue</h2>
+
+
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isActive: true,
+                size: true
+            }
+        });
+    </script>
+</body>
+
+</html>

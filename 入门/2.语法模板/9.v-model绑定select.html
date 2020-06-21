@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model绑定select标签</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <select name="" id="" v-model="mySelect">
+            <option value="java">Java从入门到精通</option>
+            <option value="mysql">MySQL从入门到精通</option>
+            <option value="python">Python从入门到精通</option>
+        </select>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                mySelect: 'java'
+            }
+        })
+    </script>
+</body>
+</html>

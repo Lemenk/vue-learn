@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件的数据</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-com></my-com>
+    </div>
+</body>
+
+<script>
+    let myCom = Vue.extend({
+        template: `<div>我是组件{{msg}}</div></div>`,
+        data() {
+            return {
+                msg: '  我是子组件的msg  '
+            }
+        }
+    })
+    let app = new Vue({
+        el: '#app',
+        data: {
+            msg: '哈哈哈'
+        },
+        components: {
+            myCom
+        }
+    })
+</script>
+
+</html>
