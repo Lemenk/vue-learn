@@ -1,4 +1,5 @@
 # 02-runtimeonly
+此项目为runtime-only演示项目，因此创建项目时须选择runtime-only。
 
 > vue cli2 runtime-only
 
