@@ -12,13 +12,13 @@ vue init webpack my-project
 ~~~
 
 #### 过程
-![image-20200621220740856](https://lemenk-img-aliyun.oss-cn-beijing.aliyuncs.com/img/image-20200621220740856.png)
+![image-2](https://github.com/Lemenk/images/blob/master/github-pages/2.png)
 
 
 
 #### 项目结构：
 
-<img src="https://lemenk-img-aliyun.oss-cn-beijing.aliyuncs.com/img/FastStoneEditor.png" alt="FastStoneEditor" style="zoom:80%;" />
+<img src="https://github.com/Lemenk/images/blob/master/github-pages/1.png" alt="image-1" style="zoom:80%;" />
 
 
 #### runtime-compiler与 runtime-only
