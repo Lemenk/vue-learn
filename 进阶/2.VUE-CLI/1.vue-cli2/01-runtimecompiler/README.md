@@ -1,4 +1,5 @@
 # 01-runtimecompiler
+此项目为runtime-compiler演示项目，因此创建项目时须选择runtime-compiler。
 
 > vue cli2 runtime-compiler
 
