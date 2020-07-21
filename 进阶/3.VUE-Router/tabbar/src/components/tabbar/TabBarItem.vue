@@ -1,4 +1,5 @@
 <template>
+  <!--所有的item都展示同一个图片, 同一个文字-->
   <div class="tab-bar-item" @click="itemClick">
     <div v-if="!isActive">
       <slot name="item-icon"></slot>
@@ -16,7 +17,11 @@
 export default {
   name: "TabbarItem",
   props: {
-    path: String
+    path: String,
+    activeColor: {
+      type: String,
+      default: "red"
+    }
   },
   data() {
     return {
@@ -31,6 +36,9 @@ export default {
   computed: {
     isActive() {
       return this.$route.path.indexOf(this.path) !== -1;
+    },
+    activeStyle() {
+      return this.isActive ? { color: this.activeColor } : {};
     }
   }
 };
